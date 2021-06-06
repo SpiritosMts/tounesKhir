@@ -13,6 +13,7 @@ class Family {
   bool? check3;
   bool? check4;
   bool? check5;
+  int? rate;
 
 
   Family({
@@ -27,6 +28,7 @@ class Family {
     this.check3,
     this.check4,
     this.check5,
+    this.rate,
   });
 /*
   /// get model object from Json

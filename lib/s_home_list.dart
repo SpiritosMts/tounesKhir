@@ -14,39 +14,39 @@ class _HomeListState extends State<HomeList> {
 
   ///instances of families
   List<Family> families = [
-    Family(
-        name: 'raed ',
-        description: 'Zawalyyy',
+    Family(rate: 2,
+        name: 'منصف بن فتوح',
+        description: 'معوق وله طفلان ،يقطن في منطقة معزولة و يعيش في بيت مهترئ أيضاً لا يملك المال الكافي ليطعم أولاده',
         tel: '45614902',
         images:
             'https://www.cnet.com/a/img/sU4Yg-txttxK5raE3LF-9DlNHFo=/940x0/2020/06/17/4e9fdaa6-c9bb-4047-a116-fb12067d28e9/gettyimages-846330808.jpg'),
-    Family(
-        name: 'hsan',
-        description: 'fdhdfhjdghjg',
+    Family(rate: 22,
+        name: ' أحمد بن يعقوب',
+        description: 'معوق وله طفلان ،يقطن في منطقة معزولة و يعيش في بيت مهترئ أيضاً لا يملك المال الكافي ليطعم أولاده',
         tel: '456457782',
         images:
             'https://i.hurimg.com/i/hdn/75/0x0/5bd02a4f18c773199cd51afe.jpg'),
-    Family(
-        name: 'hmd ',
-        description: 'Zawalyyy',
+    Family(rate: 16,
+        name: 'أروى العلاجي',
+        description: 'معوق وله طفلان ،يقطن في منطقة معزولة و يعيش في بيت مهترئ أيضاً لا يملك المال الكافي ليطعم أولاده',
         tel: '56549564',
         images:
             'https://mk0habitatforhui6bly.kinstacdn.com/wp-content/uploads/2018/08/relative-poverty-cover.jpg'),
-    Family(
-        name: 'kofta',
-        description: 'Zawalyyy',
+    Family(rate: 9,
+        name: 'أمين ',
+        description: 'معوق وله طفلان ،يقطن في منطقة معزولة و يعيش في بيت مهترئ أيضاً لا يملك المال الكافي ليطعم أولاده',
         tel: '64655656',
         images:
             'https://image.shutterstock.com/image-photo/raxaul-india-circa-october-2011-260nw-592622099.jpg'),
-    Family(
-        name: 'wael',
-        description: 'Zawalyyy',
+    Family(rate: 5,
+        name: 'ريمان بلحاج حسن',
+        description: 'معوق وله طفلان ،يقطن في منطقة معزولة و يعيش في بيت مهترئ أيضاً لا يملك المال الكافي ليطعم أولاده',
         tel: '865656556',
         images:
             'https://t4.ftcdn.net/jpg/02/17/90/99/360_F_217909997_vZGTnNsBPfRuJEH25xaSl1ciTTWxpjla.jpg'),
-    Family(
-        name: 'nizar',
-        description: 'Zawalyyy',
+    Family(rate: 1,
+        name: 'وليد ',
+        description: 'معوق وله طفلان ،يقطن في منطقة معزولة و يعيش في بيت مهترئ أيضاً لا يملك المال الكافي ليطعم أولاده',
         tel: '98565656',
         images: 'https://static.dw.com/image/16379376_6.jpg'),
   ];
@@ -98,7 +98,7 @@ class _HomeListState extends State<HomeList> {
                   child: Row(
                     children: [
                       Icon(Icons.check,color: Colors.green),
-                      Text('12'),
+                      Text(fam.rate.toString()),
                     ],
                   ),
                 ),
