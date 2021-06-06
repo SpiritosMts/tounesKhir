@@ -2,6 +2,7 @@ import 'package:charity_app/s_account.dart';
 import 'package:charity_app/s_family_add.dart';
 import 'package:charity_app/s_home_list.dart';
 import 'package:charity_app/tests/x_test.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -12,9 +13,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
 
-
   int _selectedIndex = 0;
   bool isChecked = false;
+
   static List<Widget> _widgetOptions = [
     ///Home Screen
     HomeList(),
@@ -34,7 +35,10 @@ class _HomeState extends State<Home> {
     ///Scaffold
     return Scaffold(
       appBar: AppBar(
-        title: Text('BottomNavigationBar Sample'),
+        title: Text('قائمة العائلات المحتاجة',
+            textAlign: TextAlign.center,
+            textDirection: TextDirection.rtl,
+        ),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -51,15 +55,16 @@ class _HomeState extends State<Home> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.blueAccent,
         onTap: _onItemTapped,
       ),
       ///floating Action Button With condition
       // if( Signed in ==true ) return
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
+        onPressed: () async{
           /// Show Family add
 
+         await  showRules();
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => FamilyAdd()),
@@ -71,4 +76,32 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+
+  Future showRules() => showDialog(
+    context: context,
+    builder: (BuildContext context) => CupertinoAlertDialog(
+      content: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('عند إضافة صور، الرجاء تجنب تصوير وجوه العائلات المعوزة',textAlign: TextAlign.right,),
+            Text('الرجاء التوصية فقط على العائلات التي لكم بهم معرفة دقيقة',textAlign: TextAlign.right,),
+            Text('إن اضفتم معطيات شخص/عائلة محتاجة الرجاء التدقق من صحة المعلومات',textAlign: TextAlign.right,),
+          ],
+        ),
+      ),
+      actions: <Widget>[
+        CupertinoDialogAction(
+          isDestructiveAction: true,
+          child: Text('حسناً'),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ],
+    ),
+  );
 }
+
+

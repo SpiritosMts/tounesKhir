@@ -14,7 +14,6 @@ class GoogleMapScreen extends StatefulWidget {
   @override
   _GoogleMapScreenState createState() => _GoogleMapScreenState();
 }
-
 class _GoogleMapScreenState extends State<GoogleMapScreen> {
   /// default marker location sousse
   double lat = 35.821430;
@@ -54,7 +53,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
             GoogleMap(
               myLocationEnabled: true,
               myLocationButtonEnabled: true,
-              onTap: (p) => setMarker(p.longitude, p.latitude, true),
+              onTap: (p) => setMarker(p.latitude, p.longitude, true),
               onMapCreated: (GoogleMapController controller) => _controller.complete(controller),
               initialCameraPosition: CameraPosition(target: LatLng(lat, lng), zoom: 16.0),
               markers: _markers.values.toSet(),

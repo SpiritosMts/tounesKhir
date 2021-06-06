@@ -23,9 +23,9 @@ class _AccountState extends State<Account> {
             ),
           ),
           SizedBox(height: 15),
-          TextButton(
+          ElevatedButton(
             style: TextButton.styleFrom(
-              primary: Colors.purple,
+              primary: Colors.white,
               minimumSize: Size(88, 36),
               padding: EdgeInsets.symmetric(horizontal: 16.0),
               shape: const RoundedRectangleBorder(

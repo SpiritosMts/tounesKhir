@@ -22,17 +22,18 @@ class _FamilyAddState extends State<FamilyAdd> {
   bool isChecked2 = false;
   bool isChecked3 = false;
   bool isChecked4 = false;
+  bool isChecked5 = false;
   //**********************************************************************
 
   @override
   Widget build(BuildContext context) {
-  FirebaseCrashlytics.instance.crash();
+  //FirebaseCrashlytics.instance.crash();
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
           'إضافة عائلة أو شخص محتاج',
-          textAlign: TextAlign.right,
+          textAlign: TextAlign.center,
           textDirection: TextDirection.rtl,
         ),
       ),
@@ -40,6 +41,21 @@ class _FamilyAddState extends State<FamilyAdd> {
         textDirection: TextDirection.rtl,
         child: ListView(
           children: [
+            Container(
+              padding: EdgeInsets.all(16.0),
+              child: TextFormField(
+                textDirection: TextDirection.rtl,
+                textAlign: TextAlign.right,
+                //restorationId: 'life_story_field',
+                //focusNode: _lifeStory,
+                decoration: InputDecoration(
+                  border: const OutlineInputBorder(),
+                  hintText: 'إسم العائلة أو إسم مستعار',
+                  labelText: 'الاسم',
+                ),
+                maxLines: 1,
+              ),
+            ),
             Container(
               padding: EdgeInsets.all(16.0),
               child: TextFormField(
@@ -54,7 +70,7 @@ class _FamilyAddState extends State<FamilyAdd> {
                         //textDirection: TextDirection.rtl,
 
                         )),
-                maxLines: 1,
+                maxLines: 3,
               ),
             ),
             Container(
@@ -69,7 +85,7 @@ class _FamilyAddState extends State<FamilyAdd> {
                   hintText: 'الهاتف',
                   labelText: 'الهاتف',
                 ),
-                maxLines: 3,
+                maxLines: 1,
               ),
             ),
             Container(
@@ -87,59 +103,23 @@ class _FamilyAddState extends State<FamilyAdd> {
                 maxLines: 1,
               ),
             ),
-            Container(
-              padding: EdgeInsets.all(16.0),
-              child: TextFormField(
-                textDirection: TextDirection.rtl,
-                textAlign: TextAlign.right,
-                //restorationId: 'life_story_field',
-                //focusNode: _lifeStory,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  hintText: 'hintText',
-                  labelText: 'labelText',
-                ),
-                maxLines: 1,
-              ),
-            ),
+
 
             /// location
-            Container(
-              child:TextButton(
-                style: TextButton.styleFrom(
-                  primary: Colors.purple,
-                  minimumSize: Size(88, 36),
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => GoogleMapScreen()),
-                  );
-                },
 
-                child: Text('إشترك',
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-
-            ),
             Row(
+
               children: [
                 Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
                   alignment: Alignment.centerRight,
                   child: Text('إضافة موقع'),
                 ),
                 SizedBox(width: 10),
                 Container(
-                  child:TextButton(
+                  child:ElevatedButton(
                     style: TextButton.styleFrom(
-                      primary: Colors.purple,
+                      primary: Colors.white,
                       minimumSize: Size(88, 36),
                       padding: EdgeInsets.symmetric(horizontal: 16.0),
                       shape: const RoundedRectangleBorder(
@@ -153,7 +133,7 @@ class _FamilyAddState extends State<FamilyAdd> {
                       );
                     },
 
-                    child: Text('إشترك',
+                    child: Text('تحديث',
                       style: TextStyle(
                         fontSize: 20,
                       ),
@@ -168,15 +148,17 @@ class _FamilyAddState extends State<FamilyAdd> {
              Row(
                children: [
                  Container(
+                   padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+
                    alignment: Alignment.centerRight,
                      child: Text('إضافة صور'),
                  ),
                  SizedBox(width: 10),
                  Container(
                      alignment: Alignment.centerLeft,
-                     child:TextButton(
+                     child:ElevatedButton(
                        style: TextButton.styleFrom(
-                         primary: Colors.purple,
+                         primary: Colors.white,
                          minimumSize: Size(88, 36),
                          padding: EdgeInsets.symmetric(horizontal: 16.0),
                          shape: const RoundedRectangleBorder(
@@ -207,7 +189,15 @@ class _FamilyAddState extends State<FamilyAdd> {
             ///checks
             Column(
               children: [
-                Text('مزيد من المعلومات:'),
+                Container(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text('مزيد من المعلومات:',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
                 CheckboxListTile(
                   title: Text("وجود إعاقة",
                     textAlign: TextAlign.right,
@@ -267,15 +257,48 @@ class _FamilyAddState extends State<FamilyAdd> {
                     textDirection: TextDirection.rtl,
                   ),
                   checkColor: Colors.white,
-                  value: isChecked4,
+                  value: isChecked5,
                   onChanged: (bool? value) {
                     setState(() {
-                      isChecked4 = value!;
+                      isChecked5 = value!;
                     });
                   },
                 ),
               ],
             ),
+            SizedBox(height: 5),
+            Container(
+              alignment: Alignment.center,
+              child:ElevatedButton(
+                style: TextButton.styleFrom(
+                  primary: Colors.white,
+                  minimumSize: Size(88, 36),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  ),
+                ),
+                onPressed: () {
+                  /*
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => GoogleMapScreen()),
+                  );
+                  */
+
+                },
+
+                child: Container(
+                  margin: EdgeInsets.all(5),
+                  child: Text('أضف إلى القائمة',
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
 
           ],
         ),
