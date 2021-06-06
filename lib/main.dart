@@ -1,11 +1,14 @@
 import 'package:charity_app/s_family_add.dart';
 import 'package:charity_app/s_home_structure.dart';
 import 'package:charity_app/tests/x_test.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'map/googleMapScreen.dart';
 
-void main(){
+void main () async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -13,6 +16,7 @@ void main(){
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
 
 
     return new MaterialApp(

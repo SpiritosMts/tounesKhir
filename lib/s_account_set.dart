@@ -111,6 +111,32 @@ class _AccountSetterState extends State<AccountSetter> {
             maxLines: 1,
           ),
         ),
+        SizedBox(height: 20),
+        Container(
+          alignment: Alignment.center,
+          child: TextButton(
+            style: TextButton.styleFrom(
+              primary: Colors.purple,
+              minimumSize: Size(88, 36),
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+              ),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AccountSetter()),
+              );
+            },
+
+            child: Text('إشترك',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }

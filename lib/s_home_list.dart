@@ -1,4 +1,5 @@
 import 'package:charity_app/models/model_family.dart';
+import 'package:charity_app/server.dart';
 import 'package:flutter/material.dart';
 
 class HomeList extends StatefulWidget {
@@ -24,7 +25,7 @@ class _HomeListState extends State<HomeList> {
   //***************************************************************************
   @override
   Widget build(BuildContext context) {
-
+    getQuoteOfTheDay();
     Widget getFamilyWidget(Family fam) {
       return Container(
         height: 100,
@@ -39,14 +40,27 @@ class _HomeListState extends State<HomeList> {
       );
     }
 
-    return Container(
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: families.length,
-        itemBuilder: (context, i) {
-          return getFamilyWidget(families[i]);
-        },
-      ),
+    return ListView(
+      children: [
+        Container(
+          child: Text('مرحبا بكم, شكرا لجعلكم العالم مكانا أفضل',
+            textAlign: TextAlign.center,
+            textDirection: TextDirection.rtl,
+          ),
+        ),
+    Container(
+    child: ListView.builder(
+
+    shrinkWrap: true,
+      itemCount: families.length,
+      itemBuilder: (context, i) {
+        return getFamilyWidget(families[i]);
+      },
+    ),
+    ),
+
+      ],
     );
+
   }
 }

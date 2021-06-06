@@ -1,3 +1,4 @@
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 
 import 'map/googleMapScreen.dart';
@@ -25,7 +26,7 @@ class _FamilyAddState extends State<FamilyAdd> {
 
   @override
   Widget build(BuildContext context) {
-
+  FirebaseCrashlytics.instance.crash();
 
     return Scaffold(
       appBar: AppBar(
@@ -128,7 +129,40 @@ class _FamilyAddState extends State<FamilyAdd> {
               ),
 
             ),
+            Row(
+              children: [
+                Container(
+                  alignment: Alignment.centerRight,
+                  child: Text('إضافة موقع'),
+                ),
+                SizedBox(width: 10),
+                Container(
+                  child:TextButton(
+                    style: TextButton.styleFrom(
+                      primary: Colors.purple,
+                      minimumSize: Size(88, 36),
+                      padding: EdgeInsets.symmetric(horizontal: 16.0),
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => GoogleMapScreen()),
+                      );
+                    },
 
+                    child: Text('إشترك',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+
+                ),
+              ],
+            ),
             /// Images
 
              Row(
@@ -137,6 +171,7 @@ class _FamilyAddState extends State<FamilyAdd> {
                    alignment: Alignment.centerRight,
                      child: Text('إضافة صور'),
                  ),
+                 SizedBox(width: 10),
                  Container(
                      alignment: Alignment.centerLeft,
                      child:TextButton(
@@ -174,6 +209,10 @@ class _FamilyAddState extends State<FamilyAdd> {
               children: [
                 Text('مزيد من المعلومات:'),
                 CheckboxListTile(
+                  title: Text("وجود إعاقة",
+                    textAlign: TextAlign.right,
+                    textDirection: TextDirection.rtl,
+                  ),
                   checkColor: Colors.white,
                   value: isChecked1,
                   onChanged: (bool? value) {
@@ -183,6 +222,10 @@ class _FamilyAddState extends State<FamilyAdd> {
                   },
                 ),
                 CheckboxListTile(
+                  title: Text("مرض مزمن",
+                    textAlign: TextAlign.right,
+                    textDirection: TextDirection.rtl,
+                  ),
                   checkColor: Colors.white,
                   value: isChecked2,
                   onChanged: (bool? value) {
@@ -192,6 +235,11 @@ class _FamilyAddState extends State<FamilyAdd> {
                   },
                 ),
                 CheckboxListTile(
+                  title: Text("مشكل تنقل",
+                    textAlign: TextAlign.right,
+                    textDirection: TextDirection.rtl,
+                  ),
+
                   checkColor: Colors.white,
                   value: isChecked3,
                   onChanged: (bool? value) {
@@ -201,6 +249,23 @@ class _FamilyAddState extends State<FamilyAdd> {
                   },
                 ),
                 CheckboxListTile(
+                  title: Text("قص تغذية",
+                    textAlign: TextAlign.right,
+                    textDirection: TextDirection.rtl,
+                  ),
+                  checkColor: Colors.white,
+                  value: isChecked4,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      isChecked4 = value!;
+                    });
+                  },
+                ),
+                CheckboxListTile(
+                  title: Text("مشكل أثاث",
+                    textAlign: TextAlign.right,
+                    textDirection: TextDirection.rtl,
+                  ),
                   checkColor: Colors.white,
                   value: isChecked4,
                   onChanged: (bool? value) {
