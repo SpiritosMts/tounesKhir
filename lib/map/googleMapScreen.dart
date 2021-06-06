@@ -7,7 +7,7 @@ import 'geoLocator.dart'; // get current position
 
 class GoogleMapScreen extends StatefulWidget {
   final bool editable;
-  final Position previouslySavedPosition;
+  final Position? previouslySavedPosition;
 
   GoogleMapScreen({this.editable = false, this.previouslySavedPosition});
 
@@ -31,7 +31,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen> {
 
     /// update lat & long with old data
     if (widget.previouslySavedPosition != null) {
-      setMarker(widget.previouslySavedPosition.latitude, widget.previouslySavedPosition.longitude, widget.editable);
+      setMarker(widget.previouslySavedPosition!.latitude, widget.previouslySavedPosition!.longitude, widget.editable);
     } else {
       /// get current position
       determinePosition().then((newPosition) {

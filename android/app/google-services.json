@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "543180003193",
+    "project_id": "lil-tech",
+    "storage_bucket": "lil-tech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543180003193:android:afeb93f7b435587bd0c1a8",
+        "android_client_info": {
+          "package_name": "com.example.charity_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "543180003193-67u69m7u1o0fqtrialhn2u90q4bhjgqk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxeLGa7YBzV3c1s1Ho-MmF-ofOpQSDmRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "543180003193-67u69m7u1o0fqtrialhn2u90q4bhjgqk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

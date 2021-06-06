@@ -3,6 +3,8 @@ import 'package:charity_app/s_home_structure.dart';
 import 'package:charity_app/tests/x_test.dart';
 import 'package:flutter/material.dart';
 
+import 'map/googleMapScreen.dart';
+
 void main(){
   runApp(MyApp());
 }

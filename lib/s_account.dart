@@ -15,8 +15,14 @@ class _AccountState extends State<Account> {
     return Container(
       child: Column(
         children: [
-          Text('إشترك في عمل خيري'),
           SizedBox(height: 100),
+          Text('إشترك في عمل خيري',
+              textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 20.0,
+            ),
+          ),
+          SizedBox(height: 15),
           TextButton(
             style: TextButton.styleFrom(
               primary: Colors.purple,

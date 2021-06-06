@@ -1,5 +1,6 @@
 import 'package:charity_app/s_account.dart';
 import 'package:charity_app/s_family_add.dart';
+import 'package:charity_app/s_home_list.dart';
 import 'package:charity_app/tests/x_test.dart';
 import 'package:flutter/material.dart';
 
@@ -16,14 +17,7 @@ class _HomeState extends State<Home> {
   bool isChecked = false;
   static List<Widget> _widgetOptions = [
     ///Home Screen
-    /*Text(
-      'Home Page: ',
-      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-    ),*/
-    Text(
-      'Home Page',
-      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-    ),
+    HomeList(),
     ///Account Screen
     Account(),
   ];

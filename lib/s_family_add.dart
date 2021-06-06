@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'map/googleMapScreen.dart';
+
 class FamilyAdd extends StatefulWidget {
   @override
   _FamilyAddState createState() => _FamilyAddState();
@@ -15,21 +17,21 @@ class _FamilyAddState extends State<FamilyAdd> {
     super.dispose();
   }
 */
-
+  bool isChecked1 = false;
+  bool isChecked2 = false;
+  bool isChecked3 = false;
+  bool isChecked4 = false;
   //**********************************************************************
 
   @override
   Widget build(BuildContext context) {
 
-    bool isChecked1 = false;
-    bool isChecked2 = false;
-    bool isChecked3 = false;
-    bool isChecked4 = false;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('إضافة عائلة أو شخص محتاج',
-        textAlign: TextAlign.right,
+        title: Text(
+          'إضافة عائلة أو شخص محتاج',
+          textAlign: TextAlign.right,
           textDirection: TextDirection.rtl,
         ),
       ),
@@ -63,8 +65,8 @@ class _FamilyAddState extends State<FamilyAdd> {
                 //focusNode: _lifeStory,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  hintText: 'hintText',
-                  labelText: 'labelText',
+                  hintText: 'الهاتف',
+                  labelText: 'الهاتف',
                 ),
                 maxLines: 3,
               ),
@@ -99,24 +101,88 @@ class _FamilyAddState extends State<FamilyAdd> {
                 maxLines: 1,
               ),
             ),
+
             /// location
-            Container(),
+            Container(
+              child:TextButton(
+                style: TextButton.styleFrom(
+                  primary: Colors.purple,
+                  minimumSize: Size(88, 36),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => GoogleMapScreen()),
+                  );
+                },
+
+                child: Text('إشترك',
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+
+            ),
+
             /// Images
-            Container(),
+
+             Row(
+               children: [
+                 Container(
+                   alignment: Alignment.centerRight,
+                     child: Text('إضافة صور'),
+                 ),
+                 Container(
+                     alignment: Alignment.centerLeft,
+                     child:TextButton(
+                       style: TextButton.styleFrom(
+                         primary: Colors.purple,
+                         minimumSize: Size(88, 36),
+                         padding: EdgeInsets.symmetric(horizontal: 16.0),
+                         shape: const RoundedRectangleBorder(
+                           borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                         ),
+                       ),
+                       onPressed: () {
+                         /*
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => GoogleMapScreen()),
+                  );
+                  */
+
+                       },
+
+                       child: Text('أضف',
+                         style: TextStyle(
+                           fontSize: 20,
+                         ),
+                       ),
+                     ),
+                 ),
+               ],
+             ),
+
+
             ///checks
             Column(
               children: [
                 Text('مزيد من المعلومات:'),
-                  Checkbox(
-        checkColor: Colors.white,
-        value: isChecked1,
-        onChanged: (bool? value) {
-          setState(() {
-            isChecked1 = value!;
-          });
-        },
-      ),
-                  Checkbox(
+                CheckboxListTile(
+                  checkColor: Colors.white,
+                  value: isChecked1,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      isChecked1 = value!;
+                    });
+                  },
+                ),
+                CheckboxListTile(
                   checkColor: Colors.white,
                   value: isChecked2,
                   onChanged: (bool? value) {
@@ -125,7 +191,7 @@ class _FamilyAddState extends State<FamilyAdd> {
                     });
                   },
                 ),
-                  Checkbox(
+                CheckboxListTile(
                   checkColor: Colors.white,
                   value: isChecked3,
                   onChanged: (bool? value) {
@@ -134,7 +200,7 @@ class _FamilyAddState extends State<FamilyAdd> {
                     });
                   },
                 ),
-                  Checkbox(
+                CheckboxListTile(
                   checkColor: Colors.white,
                   value: isChecked4,
                   onChanged: (bool? value) {
@@ -143,7 +209,6 @@ class _FamilyAddState extends State<FamilyAdd> {
                     });
                   },
                 ),
-
               ],
             ),
 
